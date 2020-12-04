@@ -26,7 +26,6 @@
     - title: Breakpoints
     - title: Containers
     - title: Grid
-    # - title: Rows
     - title: Columns
     - title: Gutters
     - title: Utilities
@@ -117,3 +116,5 @@
     - title: Brand
     - title: License
     - title: Translations
+
+- title: Migration
