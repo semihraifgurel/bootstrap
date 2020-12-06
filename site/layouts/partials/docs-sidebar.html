@@ -3,7 +3,9 @@
   {{- $page_slug := index $url (sub (len $url) 2) -}}
 
   <ul class="list-unstyled mb-0 py-3 pt-md-1">
-  {{- range $group := .Site.Data.sidebar -}}
+  {{- /* Retrieve the page groups which have a `page` key */ -}}
+  {{- $groups_with_pages := where .Site.Data.sidebar "pages" "!=" nil -}}
+  {{- range $group := $groups_with_pages -}}
     {{- $link := $group.title -}}
     {{- $link_slug := $link | urlize -}}
 
@@ -34,7 +36,8 @@
         </div>
         {{- end }}
       </li>
-    {{- else }}
+    {{- end }}
+    {{- if not $group.pages }}
       <li class="my-3 mx-4 border-top"></li>
       <li{{ if $is_active_group }} class="active"{{ end }}>
         <a href="/docs/{{ $.Site.Params.docs_version }}/{{ $group_slug }}/" class="d-inline-flex align-items-center rounded">
