@@ -80,7 +80,8 @@
     }
   }
 
-  .active {
+  .active,
+  .active a {
     font-weight: 600;
     color: rgba($black, .85);
   }
